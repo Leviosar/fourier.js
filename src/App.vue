@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app dark>
+    <v-main>
+      <Canvas/>
+      <Menu/>
+      <Settings/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Canvas from "./components/Canvas.vue";
+import Menu from "./components/Menu.vue";
+import Settings from "./components/Settings.vue";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
+  components: {
+    Canvas,
+    Menu,
+    Settings
+  },
+};
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+<style scoped>
+  .v-list-group--active > .v-list-group__header .v-list-item__content {
+    color: white;
+    caret-color: white imp !important;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  body {
+    overflow: hidden;
+  }
 </style>
